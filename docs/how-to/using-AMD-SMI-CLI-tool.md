@@ -1,4 +1,4 @@
-# Using AMD SMI Command Line Interface tool
+# Using AMD SMI command line interface tool
 
 **Disclaimer: CLI Tool is provided as an example code to aid the development of telemetry tools. Python or C++ Library is recommended as a reliable data source.**  
 

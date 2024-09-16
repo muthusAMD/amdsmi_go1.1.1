@@ -3,18 +3,17 @@
   :keywords: AMD, SMI, system, management, interface, how to, examples
 
 ********************************
-C++ library basic usage
+AMD SMI C++ library basic usage
 ********************************
 
-Device/Socket handles
-=====================
+Device and socket handles
+=========================
 
 Many of the AMD SMI library's functions take a "socket handle" or "device handle." The socket is an abstraction of the hardware's physical socket. This will enable AMD SMI to provide a better representation of the hardware to the user. Although there is always one distinct GPU for a socket, the APU may have both GPU and CPU devices on the same socket. Moreover, for the MI200 series, it may have multiple GCDs.
 
 To discover the sockets in the system, ``amdsmi_get_socket_handles()`` is called to get a list of socket handles, which, in turn, can be used to query the devices in that socket using ``amdsmi_get_processor_handles().`` The device handler is used to distinguish the detected devices from one another. It is important to note that a device may end up with a different device handle after restarting the application, so a device handle should not be relied upon to be constant over the process.
 
-The list of socket handles discovered using ``amdsmi_get_socket_handles()`` can also be used to query the CPUs in that socket using amdsmi_get_processor_handles_by_type(), which in turn can then be used to query the cores in that CPU using ``amdsmi_get_processor_handles_by_type()`` again.
-
+The list of socket handles discovered using ``amdsmi_get_socket_handles()`` can also be used to query the CPUs in that socket using ``amdsmi_get_processor_handles_by_type()``, which in turn can then be used to query the cores in that CPU using ``amdsmi_get_processor_handles_by_type()`` again.
 
 Hello AMD SMI
 =============
