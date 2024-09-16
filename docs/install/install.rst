@@ -126,6 +126,101 @@ Now you have the AMD SMI Python library in your Python path:
 
     import amdsmi
 
+Building AMD SMI
+================
+
+Rebuilding Python wrapper
+-------------------------
+
+Python wrapper (binding) is an auto-generated file ``py-interface/amdsmi_wrapper.py``
+
+The wrapper should be re-generated on each C++ API change by doing the following:
+
+
+.. code-block:: bash
+
+   ./update_wrapper.sh
+
+After this command, the file in ``py-interface/amdsmi_wrapper.py`` will be automatically updated on each compile.
+
+.. note::
+
+   To regenerate the Python wrapper, you must have Docker installed.
+
+   Python_wrapper is NOT automatically re-generated. You must run ``./update_wrapper.sh`.`
+
+
+Additional software required to build AMD SMI
+---------------------------------------------
+
+The following components are required to build the library.
+
+.. note::
+
+   The software versions listed are what was used in development. Earlier versions are not guaranteed to work.
+
+* CMake (v3.14.0) - ``python3 -m pip install cmake``
+
+* g++ (5.4.0)
+
+The following components are required to build the AMD SMI Python package:
+
+* Python (3.6.8 or above)
+
+* virtualenv - ``python3 -m pip install virtualenv``
+
+The following tools are required to build the latest documentation:
+
+* Doxygen (1.8.11)
+* Latex (pdfTeX 3.14159265-2.6-1.40.16)
+
+The source code for AMD SMI is available on Github.
+
+After the AMD SMI library git repository is cloned to a local Linux machine, the default location for the library and headers is /opt/rocm. 
+
+.. Note:: Before installation, the old ROCm directories must be deleted:
+
+* /opt/rocm
+* /opt/rocm-{number}
+
+Building the library is achieved by following the typical CMake build sequence (run as root user or use 'sudo' before the 'make install' command), specifically:
+
+.. code-block:: bash
+
+      mkdir -p build
+      cd build
+      cmake ..
+      make -j $(nproc)
+      make install
+
+
+The built library will appear in the `build` folder.
+
+In addition to the preceding steps, use the following instructions to build the rpm and deb packages:
+
+.. code-block:: bash
+
+    make package
+
+Building tests
+-------------------
+
+To verify the build and capability of AMD SMI on your system and see an example of how AMD SMI can be used, you may build and run the tests available in the repo. To build the tests, follow these steps:
+
+.. code-block:: bash
+
+      mkdir -p build
+      cd build
+      cmake -DBUILD_TESTS=ON ..
+      make -j $(nproc)
+
+
+Running tests
+--------------
+
+Execute the program `amdsmitst` that is built from the steps above to run the test. 
+
+Path to the program `amdsmitst`: `build/tests/amd_smi_test/`
 
 Sphinx documentation
 =====================
