@@ -15,11 +15,10 @@ subtrees:
 - caption: How to
   entries:
     - file: how-to/using-amdsmi-for-C++.rst
-      title: Use AMD SMI for C++ library
+      title: C++ library basic usage
     - file: how-to/using-amdsmi-for-python.md
-      title: Use AMD SMI for Python library
+      title: Python library usage and API
     - file: how-to/using-AMD-SMI-CLI-tool.md
-      title: Use AMD SMI CLI tool
   
 - caption: API reference
   entries:

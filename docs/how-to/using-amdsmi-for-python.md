@@ -1,9 +1,14 @@
-# AMD SMI Python Library
+<head>
+    <meta name="description" content="Learn about the AMD SMI Python library's basic usage and API.">
+    <meta name="keywords" content="AMD, SMI, system, management, interface, how to, examples">
+</head>
+
+# AMD SMI Python library usage and API
 
 ## Requirements
 
 * Python 3.6+ 64-bit
-* Driver must be loaded for amdsmi_init() to pass
+* Driver must be loaded for `amdsmi_init()` to pass
 
 ## Overview
 
@@ -38,9 +43,9 @@ finally:
         print(e)
 ```
 
-To initialize amdsmi lib, amdsmi_init() must be called before all other calls to amdsmi lib.
+To initialize amdsmi lib, `amdsmi_init()` must be called before all other calls to amdsmi lib.
 
-To close connection to driver, amdsmi_shut_down() must be the last call.
+To close connection to driver, `amdsmi_shut_down()` must be the last call.
 
 ### Exceptions
 
