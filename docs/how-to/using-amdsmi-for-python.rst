@@ -1,5 +1,5 @@
 .. metadata::
-   :description: Learn some shit.
+   :description: Explore AMD SMI's Python library. Learn about its API and basic usage.
    :keywords: command, line, interface, tool
 
 ****************************
